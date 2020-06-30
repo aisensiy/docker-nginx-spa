@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [[ $CONFIG_VARS ]]; then
 
@@ -8,7 +8,7 @@ if [[ $CONFIG_VARS ]]; then
       ARGS="${ARGS} -v ${VAR} "
   done
 
-  JSON=`json_env --json $ARGS`
+  JSON=`json_env`
 
   echo " ==> Writing ${CONFIG_FILE_PATH}/config.js with ${JSON}"
 

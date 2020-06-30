@@ -1,9 +1,9 @@
-FROM nginx
+FROM nginx:mainline-alpine
 
-MAINTAINER Stepan Mazurov <stepan@socialengine.com>
+MAINTAINER aisensiy <aisnesiy@163.com>
 
 # This tool converts env vars into json to be injected into the config
-ADD https://s3.amazonaws.com/se-com-docs/bins/json_env /usr/local/bin/
+ADD json_env /usr/local/bin/
 RUN chmod +x /usr/local/bin/json_env
 
 # Do not start daemon for nginx
