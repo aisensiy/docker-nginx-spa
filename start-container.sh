@@ -1,14 +1,7 @@
 #!/bin/sh
 
 if [[ $CONFIG_VARS ]]; then
-
-  SPLIT=$(echo $CONFIG_VARS | tr "," "\n")
-  ARGS=
-  for VAR in ${SPLIT}; do
-      ARGS="${ARGS} -v ${VAR} "
-  done
-
-  JSON=`json_env`
+  JSON=`json_env ${CONFIG_FILE_PATH}/config.js`
 
   echo " ==> Writing ${CONFIG_FILE_PATH}/config.js with ${JSON}"
 
