@@ -27,10 +27,10 @@ func get_default_config(filepath string) map[string]interface{} {
 	}
 
 	if err := json.Unmarshal([]byte(jsondata[start:]), &config); err != nil {
+		return make(map[string]interface{})
+	} else {
 		return config
 	}
-
-	return config
 }
 
 func main() {
