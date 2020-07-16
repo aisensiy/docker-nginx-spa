@@ -15,7 +15,7 @@ func check(e error) {
 }
 
 func get_default_config(filepath string) map[string]interface{} {
-	var config map[string]interface{}
+	config := make(map[string]interface{})
 	dat, err := ioutil.ReadFile(filepath)
 	check(err)
 
@@ -26,7 +26,10 @@ func get_default_config(filepath string) map[string]interface{} {
 		panic("can not find { in file")
 	}
 
-	json.Unmarshal([]byte(jsondata[start:]), &config)
+	if err := json.Unmarshal([]byte(jsondata[start:]), &config); err != nil {
+		return config
+	}
+
 	return config
 }
 
