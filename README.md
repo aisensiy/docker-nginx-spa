@@ -57,6 +57,16 @@ $ docker run \
 
 All the env variables start with `CONFIG_VARS` will be filtered into the `config.js` file. And the `CONFIG_VARS` prefix will be removed. The `config.js` file, which you can then add to your index.html, or load asynchronously. The path can be controlled with `CONFIG_FILE_PATH` environmental variable.
 
+### Config Override
+
+> This is supported in `openbayea/openbayes-nginx-spa:v2`
+
+If you wanna have a `config.js` file with default configs in it. The `config.js` should fulfill the following requirements:
+
+1. The `json` part must be a valid `json format` thing without any `javascript` part. There is a `config.example.js` file in this repository as an example.
+2. The `config.js` file should only have a format like `window.__env = {}` do not add more code after the end of `}`.
+3. Read the code `main.go` if you wanna know all the detail.
+
 [push state]: https://developer.mozilla.org/en-US/docs/Web/API/History_API
 [latest]: https://github.com/aisensiy/docker-nginx-spa/blob/master/Dockerfile
 [base image]: https://github.com/nginxinc/docker-nginx
